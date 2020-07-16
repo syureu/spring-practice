@@ -17,11 +17,16 @@ public class ApplicationConfig {
 //        return bookService;
 //    }
 
+//    @Bean
+//    public BookService bookService(BookRepository bookRepository) {
+//        BookService bookService = new BookService();
+//        bookService.setBookRepository(bookRepository);
+//        return bookService;
+//    }
+
     @Bean
-    public BookService bookService(BookRepository bookRepository) {
-        BookService bookService = new BookService();
-        bookService.setBookRepository(bookRepository);
-        return bookService;
+    public BookService bookService() {
+        return new BookService();
     }
 
 }
