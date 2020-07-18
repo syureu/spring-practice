@@ -8,4 +8,8 @@ public class BookService {
 
     @Autowired
     BookRepository bookRepository;
+
+    public void printBookRepository() {
+        System.out.println(bookRepository.getClass());
+    }
 }
