@@ -21,8 +21,12 @@ public class Demospring51Application {
         //SpringApplication.run(Demospring51Application.class, args);
         var app = new SpringApplication(Demospring51Application.class);
         app.addInitializers((ApplicationContextInitializer<GenericApplicationContext>) ctx -> {
-            ctx.registerBean(MyService.class);
-            ctx.registerBean(ApplicationRunner.class, () -> args1 -> System.out.println("Functional Bean Definition."));
+            if(true) {
+                ctx.registerBean(MyService.class);
+            }
+            if (true) {
+                ctx.registerBean(ApplicationRunner.class, () -> args1 -> System.out.println("Functional Bean Definition."));
+            }
         });
         app.run(args);
     }
