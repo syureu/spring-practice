@@ -1,6 +1,7 @@
 package me.syureu.demospring527;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationContext;
@@ -23,6 +24,9 @@ public class AppRunner implements ApplicationRunner {
     // Configuration을 작성하면 오토스캔이 아닌 수동 빈 등록이라 귀찮다.
     // 컴포넌트 어노테이션과 함께 프로파일 어노테이션을 작성해주면 프로파일 적용이 가능하다.
 
+    @Value("${app.name}")
+    String appName;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
         Environment environment = ctx.getEnvironment();
@@ -30,5 +34,6 @@ public class AppRunner implements ApplicationRunner {
         System.out.println(Arrays.toString(environment.getDefaultProfiles()));
 
         System.out.println(environment.getProperty("app.name"));
+        System.out.println(appName);
     }
 }
