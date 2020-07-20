@@ -30,5 +30,6 @@ public class AppRunner implements ApplicationRunner {
         System.out.println(Arrays.toString(environment.getDefaultProfiles()));
 
         System.out.println(environment.getProperty("app.name"));
+        System.out.println(environment.getProperty("app.about"));
     }
 }
