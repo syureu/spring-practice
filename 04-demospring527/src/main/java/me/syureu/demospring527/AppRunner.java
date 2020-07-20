@@ -17,6 +17,7 @@ public class AppRunner implements ApplicationRunner {
 
     @Autowired
     BookRepository bookRepository;
+    // Project Run Configuration에서 test라는 Profile을 적용하게 설정해준다면 에러없이 가동된다.
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
