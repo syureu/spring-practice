@@ -1,6 +1,5 @@
 package me.syureu.demospring527;
 
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,9 +7,9 @@ import org.springframework.stereotype.Component;
 public class Single {
 
     @Autowired
-    private ObjectProvider<Proto> proto;
+    Proto proto;
 
     public Proto getProto() {
-        return proto.getIfAvailable();
+        return proto;
     }
 }
