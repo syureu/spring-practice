@@ -1,6 +1,5 @@
-package me.syurue.demospring51;
+package me.syureu.demospring51;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 @Repository

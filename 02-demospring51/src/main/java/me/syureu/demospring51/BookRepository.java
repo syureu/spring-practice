@@ -1,4 +1,4 @@
-package me.syurue.demospring51;
+package me.syureu.demospring51;
 
 public interface BookRepository {
 }
