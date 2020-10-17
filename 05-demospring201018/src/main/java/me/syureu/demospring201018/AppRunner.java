@@ -20,11 +20,15 @@ public class AppRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println(Locale.getDefault());
-        System.out.println(messageSource.getMessage("greeting", new String[] {"Syureu"}, Locale.getDefault()));
-        System.out.println(messageSource.getMessage("greeting", new String[] {"Syureu"}, Locale.US));
-        System.out.println(messageSource.getMessage("greeting", new String[] {"Syureu"}, Locale.KOREA));
 
-        System.out.println(applicationContext.getMessage("greeting", new String[] {"Syureu"}, Locale.KOREA));
+        while(true) {
+            System.out.println(Locale.getDefault());
+            System.out.println(messageSource.getMessage("greeting", new String[]{"Syureu"}, Locale.getDefault()));
+            System.out.println(messageSource.getMessage("greeting", new String[]{"Syureu"}, Locale.US));
+            System.out.println(messageSource.getMessage("greeting", new String[]{"Syureu"}, Locale.KOREA));
+
+            System.out.println(applicationContext.getMessage("greeting", new String[]{"Syureu"}, Locale.KOREA));
+            Thread.sleep(1000);
+        }
     }
 }

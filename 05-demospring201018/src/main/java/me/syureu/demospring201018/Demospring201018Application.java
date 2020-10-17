@@ -18,6 +18,7 @@ public class Demospring201018Application {
         var messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:/messages");
         messageSource.setDefaultEncoding("UTF-8");
+        messageSource.setCacheMillis(3000);
         return messageSource;
     }
 }
