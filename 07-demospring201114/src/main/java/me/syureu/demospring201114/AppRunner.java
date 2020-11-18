@@ -21,7 +21,7 @@ public class AppRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         System.out.println(resourceLoader.getClass());
 
-        Resource resource = resourceLoader.getResource("classpath:test.txt");
+        Resource resource = resourceLoader.getResource("test.txt");
         /*
         if ApplicationContext resolved by ClassPath
         location: "test.txt" is same as "classpath:test.txt"
