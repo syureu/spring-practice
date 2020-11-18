@@ -21,6 +21,9 @@ public class AppRunner implements ApplicationRunner {
         System.out.println(validator.getClass());
 
         Event event = new Event();
+        event.setLimit(-1);
+        event.setEmail("zzz");
+
         // EventValidator eventValidator = new EventValidator();
         Errors errors = new BeanPropertyBindingResult(event, "event");
 
