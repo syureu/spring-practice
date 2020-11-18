@@ -1,26 +1,30 @@
 package me.syureu.demospring201114;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.BeanPropertyBindingResult;
+import org.springframework.validation.Errors;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.util.Arrays;
 
 @Component
 public class AppRunner implements ApplicationRunner {
 
-    @Autowired
-    ResourceLoader resourceLoader;
-
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        Resource resource = resourceLoader.getResource("classpath:test.txt");
-        System.out.println(resource.exists());
-        System.out.println(resource.getDescription());
-        System.out.println(Files.readString(Path.of(resource.getURI())));
+        Event event = new Event();
+        EventValidator eventValidator = new EventValidator();
+        Errors errors = new BeanPropertyBindingResult(event, "event");
+
+        eventValidator.validate(event, errors);
+
+        System.out.println(errors.hasErrors());
+
+        errors.getAllErrors().forEach(e -> {
+            System.out.println("===== error code =====");
+            Arrays.stream(e.getCodes()).forEach(System.out::println);
+            System.out.println(e.getDefaultMessage());
+        });
     }
 }
