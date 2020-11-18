@@ -3,6 +3,8 @@ package me.syureu.demospring201114;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,11 @@ public class AppRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        var ctx1 = new ClassPathXmlApplicationContext("ctx1.xml");
+        // classpath:ctx1.xml
+        var ctx2 = new FileSystemXmlApplicationContext("ctx2.xml");
+        // file://ctx2.xml
+
         Resource resource = resourceLoader.getResource("classpath:test.txt");
         System.out.println(resource.exists());
         System.out.println(resource.getDescription());
