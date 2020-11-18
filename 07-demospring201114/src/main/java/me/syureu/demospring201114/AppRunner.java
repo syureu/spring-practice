@@ -26,6 +26,10 @@ public class AppRunner implements ApplicationRunner {
         // file://ctx2.xml
 
         Resource resource = resourceLoader.getResource("classpath:test.txt");
+        /*
+        if ApplicationContext resolved by ClassPath
+        location: "test.txt" is same as "classpath:test.txt"
+         */
         System.out.println(resource.exists());
         System.out.println(resource.getDescription());
         System.out.println(Files.readString(Path.of(resource.getURI())));
