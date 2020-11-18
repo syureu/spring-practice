@@ -15,6 +15,7 @@ public class EventValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "notempty", "Empty title is now allowed.");
 
         /*
+        // 제네릭을 지원하지 않음
         Event event = (Event)o;
         if (event.getTitle() == null) {
             errors.reject();
